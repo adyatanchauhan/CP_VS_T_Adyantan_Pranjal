@@ -32,11 +32,33 @@ def setup_page() -> None:
 
 def render_header(materials: list[dict]) -> None:
     categories = get_categories(materials)
-    st.markdown('<p class="main-header">Interactive C<sub>p</sub> vs T Database</p>', unsafe_allow_html=True)
+    
     st.markdown(
-        f'<p class="sub-header">Engineering Materials Thermodynamic Property Explorer — '
-        f'<strong>{len(materials)}</strong> materials across '
-        f'<strong>{len(categories)}</strong> categories</p>',
+        f'''
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div class="brand-wrapper">
+                <div class="logo-box">🔥</div>
+                <div>
+                    <h1 class="main-header">Interactive C<sub>p</sub> vs T Database</h1>
+                    <p class="sub-header">Engineering Materials Thermodynamic Property Explorer</p>
+                </div>
+            </div>
+            <div class="stat-card-row">
+                <div class="stat-card">
+                    <div class="stat-num">{len(materials)}</div>
+                    <div class="stat-lbl">Materials</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">{len(categories)}</div>
+                    <div class="stat-lbl">Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">3</div>
+                    <div class="stat-lbl">Cp Models</div>
+                </div>
+            </div>
+        </div>
+        ''',
         unsafe_allow_html=True,
     )
 
